@@ -11,9 +11,9 @@ const Navbar = ({ list }) => {
   const [menuVisible, setMenuVisible] = useState(large);
 
   return (
-    <div className='overflow-hidden'>
+    <div >
       <div
-        style={{ padding: "1% 7%"}}
+        style={{ padding: "1% 7%", maxWidth: 1600}}
         className={`z-10 fixed flex flex-col lg:flex-row bg-white w-full`}
       >
         <NavLogo

@@ -10,7 +10,7 @@ const Timeline = () => {
     <>
       <PageWithSidebar>
         <FeedPanel />
-        <Link to='/post-thread' className="fixed right-8 bottom-12 p-4 bg-purple text-white rounded-full w-12 h-12 text-md lg:w-16 lg:h-16 grid place-items-center cursor-pointer lg:text-xl">
+        <Link to='/post-thread' className="fixed right-8 bottom-12 p-4 bg-purple text-white rounded-full text-md lg:w-16 lg:h-16 grid place-items-center cursor-pointer lg:text-xl">
           <i class="fas fa-comment-alt "></i>
         </Link>
       </PageWithSidebar>

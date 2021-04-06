@@ -12,8 +12,8 @@ const Feed = ({ creator, content, threadId }) => {
         <img src={avatar ? avatar : nopic} className="w-12 h-12 sm:w-20 sm:h-20 rounded-full" />
         <strong className='text-sm sm:text-md lg:text-lg text-center'>{first_name} {last_name}</strong>
       </div>
-      <div className="w-9/12 flex flex-col justify-between ml-8 lg:ml-0">
-        <div>{content}</div>
+      <div className="w-9/12 flex flex-col justify-between ml-8 lg:ml-0 text-sm sm:text-md lg:text-lg">
+        <di>{content}</di>
         <div className="flex flex-row">
           <div className="w-1/2">
             <Button

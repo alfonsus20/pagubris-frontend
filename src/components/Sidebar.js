@@ -8,11 +8,23 @@ import CategoryList from "./category/CategoryList";
 import { useLocation, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserInfo } from "../actions/userActions";
-
+import { motion } from "framer-motion";
 const Sidebar = () => {
   const { pathname } = useLocation();
   const { userInfo, loading } = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
+  const { open, loading:loadingSidebar } = useSelector((state) => state.sidebar);
+
+  const variants = {
+    hidden: {
+      left: "-100%",
+      opacity: 0,
+    },
+    visible: {
+      left: "0",
+      opacity: 1,
+    },
+  };
 
   useEffect(() => {
     if (userInfo && !userInfo.name) {
@@ -21,7 +33,12 @@ const Sidebar = () => {
   }, [dispatch, userInfo]);
 
   return (
-    <div className="fixed w-100 mt-24 px-8 overflow-y-scroll top-0 bottom-0 bg-white hidden lg:block">
+    <motion.div
+      variants={variants}
+      animate={loadingSidebar || !open ? "hidden":  "visible" }
+      className={`fixed z-20 w-100 md:mt-24 px-8 overflow-y-scroll h-auto top-0 bottom-0 bg-white lg:block sidebar`}
+    >
+  
       <div className="bg-light-blue px-4 py-4 rounded-xl">
         <div className="flex flex-row items-center justify-around ">
           <img src={nopic} className="w-28 h-28 rounded-full" />
@@ -100,7 +117,7 @@ const Sidebar = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

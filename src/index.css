@@ -16,7 +16,7 @@ body {
   box-shadow: 0px 40px 40px rgba(109, 193, 215, 0.8);
 }
 
-#root{
+#root {
   max-width: 1600px;
 }
 
@@ -68,6 +68,20 @@ textarea {
   border-radius: 10px;
 }
 
-.nav{
+.nav {
   height: calc(100vh - 4rem);
+}
+
+.beside-sidebar {
+  width: calc(100% - 25rem);
+}
+
+@media screen and (max-width: 768px) {
+  .beside-sidebar {
+    width: 100%;
+    left: 0;
+  }
+  .sidebar{
+    margin-top: 60px;
+  }
 }

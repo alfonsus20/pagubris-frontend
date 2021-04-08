@@ -6,14 +6,19 @@ import {
   userSignUpReducer,
   userInfoReducer,
 } from "./reducers/userReducers";
-import { listThreadsReducer, postThreadReducer } from "./reducers/threadReducers";
+import {
+  listThreadsReducer,
+  postThreadReducer,
+} from "./reducers/threadReducers";
+import { sidebarReducer } from "./reducers/sidebarReducers";
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userSignUp: userSignUpReducer,
   userInfo: userInfoReducer,
   postThread: postThreadReducer,
-  listThreads : listThreadsReducer
+  listThreads: listThreadsReducer,
+  sidebar: sidebarReducer,
 });
 
 const isAuthenticated = localStorage.getItem("token") ? true : false;
@@ -21,6 +26,7 @@ const isAuthenticated = localStorage.getItem("token") ? true : false;
 const initialState = {
   userLogin: { isAuthenticated },
   userInfo: { userInfo: {} },
+  sidebar: { open: false },
 };
 
 const middleware = [thunk];

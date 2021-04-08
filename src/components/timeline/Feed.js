@@ -9,11 +9,11 @@ const Feed = ({ creator, content, threadId }) => {
   return (
     <div className="flex flex-row my-6 bg-white shadow-xl rounded-md py-6 px-4">
       <div className="w-3/12 flex flex-col justify-center items-center">
-        <img src={avatar ? avatar : nopic} className="w-12 h-12 sm:w-20 sm:h-20 rounded-full" />
-        <strong className='text-sm sm:text-md lg:text-lg text-center'>{first_name} {last_name}</strong>
+        <img src={avatar ? avatar : nopic} className="w-16 h-16 sm:w-20 h-20 rounded-full" />
       </div>
-      <div className="w-9/12 flex flex-col justify-between ml-8 lg:ml-0 text-sm sm:text-md lg:text-lg">
-        <di>{content}</di>
+      <div className="w-9/12 flex flex-col justify-between ml-8 lg:ml-0 text-lg">
+      <strong className='text-lg'>{first_name} {last_name}</strong>
+        <div>{content}</div>
         <div className="flex flex-row">
           <div className="w-1/2">
             <Button

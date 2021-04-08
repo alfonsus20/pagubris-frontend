@@ -12,12 +12,32 @@ import ViewAnswer from "./pages/ViewAnswer";
 import PostAnswer from "./pages/PostAnswer";
 import Completed from "./pages/Completed";
 import Category from "./pages/Category";
+import Sidebar from "./components/Sidebar";
+import {SIDEBAR_LOADING, SIDEBAR_CLOSE, SIDEBAR_OPEN} from "./constants/sidebarConstants"
+import {useDispatch, useSelector} from 'react-redux'
+import useWindowDimensions from "./utils/window-dimension"
+import {useEffect} from "react"
 
 const App = () => {
+  const { width } = useWindowDimensions();
+  const dispatch = useDispatch();
+  const { open } = useSelector((state) => state.sidebar);
+
+  useEffect(() => {
+    if (width > 768) {
+      dispatch({ type: SIDEBAR_LOADING });
+      dispatch({ type: SIDEBAR_OPEN });
+    } else {
+      dispatch({ type: SIDEBAR_LOADING });
+      dispatch({ type: SIDEBAR_CLOSE });
+    }
+  }, [width]);
+
   return (
     <Router>
       <div className="">
         <Navbar list={MENU_LIST} />
+        <Sidebar />
       </div>
       <Switch>
         <PrivateRoute path="/kategori" component={Category} />

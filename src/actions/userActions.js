@@ -86,7 +86,13 @@ export const getUserInfo = () => async (dispatch) => {
   }
 };
 
-export const logout = () => (dispatch) => {
+export const logout = () => async (dispatch) => {
+  const config = {
+    headers: {
+      Authorization: getToken(),
+    },
+  };
+  await pagubris.post("/auth/logout", {}, config);
   dispatch({ type: LOGOUT });
   dispatch({ type: USER_INFO_RESET });
   removeToken();

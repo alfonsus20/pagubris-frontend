@@ -13,15 +13,19 @@ import PostAnswer from "./pages/PostAnswer";
 import Completed from "./pages/Completed";
 import Category from "./pages/Category";
 import Sidebar from "./components/Sidebar";
-import {SIDEBAR_LOADING, SIDEBAR_CLOSE, SIDEBAR_OPEN} from "./constants/sidebarConstants"
-import {useDispatch, useSelector} from 'react-redux'
-import useWindowDimensions from "./utils/window-dimension"
-import {useEffect} from "react"
+import {
+  SIDEBAR_LOADING,
+  SIDEBAR_CLOSE,
+  SIDEBAR_OPEN,
+} from "./constants/sidebarConstants";
+import { useDispatch, useSelector } from "react-redux";
+import useWindowDimensions from "./utils/window-dimension";
+import { useEffect } from "react";
+import Overlay from "./components/Overlay";
 
 const App = () => {
   const { width } = useWindowDimensions();
   const dispatch = useDispatch();
-  const { open } = useSelector((state) => state.sidebar);
 
   useEffect(() => {
     if (width > 768) {
@@ -37,7 +41,7 @@ const App = () => {
     <Router>
       <div className="">
         <Navbar list={MENU_LIST} />
-        <Sidebar />
+        <Sidebar mobile = {width <= 768}/>
       </div>
       <Switch>
         <PrivateRoute path="/kategori" component={Category} />

@@ -1,15 +1,15 @@
 export const MENU_LIST = [
   [
-    { name: "Tentang Kami", link: "/#tentang-kami" },
-    { name: "Kontak", link: "/#kontak" },
-    { name: "Login", link: "/login" },
+    { name: "Tentang Kami", link: "/#tentang-kami", icon: 'far fa-question-circle' },
+    { name: "Kontak", link: "/#kontak", icon: 'fas fa-phone-alt' },
+    { name: "Login", link: "/login" , icon: 'fas fa-sign-in-alt'},
   ],
   [
-    { name: "Linimasa", link: "/linimasa" },
-    { name: "Sorotan", link: "/sorotan" },
-    { name: "Telah Selesai", link: "/telah-selesai" },
-    { name: "Pesan", link: "/pesan" },
-    { name: "Logout", link: "/logout" },
+    { name: "Linimasa", link: "/linimasa" , icon : 'far fa-clock'},
+    { name: "Sorotan", link: "/sorotan" , icon:'fas fa-fire' },
+    { name: "Telah Selesai", link: "/telah-selesai", icon:  'fas fa-check'},
+    { name: "Pesan", link: "/pesan", icon:  'fas fa-envelope'},
+    { name: "Logout", link: "/logout" , icon: 'fas fa-sign-out-alt'},
   ],
 ];
 

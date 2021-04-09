@@ -21,7 +21,7 @@ const PostAnswer = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-row flex-wrap md:space-x-12 mt-4">
+          <div className="flex flex-row flex-wrap mt-4">
             <div className="w-full md:w-8/12">
               <h3 className="font-bold text-xl mb-2">Deskripsi</h3>
               <TextArea

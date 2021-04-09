@@ -27,6 +27,9 @@ module.exports = {
         '136': '34rem',
         '140': '35rem',
       },
+      screens:{
+        'xs' : '400px'
+      },
       backgroundImage : theme =>({
         'auth' : "url('/src/assets/pictures/background.svg')"
       })

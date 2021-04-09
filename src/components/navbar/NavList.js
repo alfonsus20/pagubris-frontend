@@ -33,7 +33,6 @@ const NavList = ({ list, menuVisible, mobile, setMenuVisible }) => {
               className="py-4 px-2 text-lg cursor-pointer"
               onClick={() => {
                 dispatch(logout());
-                setMenuVisible(!menuVisible);
               }}
             >
               {navItem.name}

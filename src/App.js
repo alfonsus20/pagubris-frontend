@@ -39,10 +39,8 @@ const App = () => {
 
   return (
     <Router>
-      <div className="">
         <Navbar list={MENU_LIST} />
         <Sidebar mobile = {width <= 768}/>
-      </div>
       <Switch>
         <PrivateRoute path="/kategori" component={Category} />
         <PrivateRoute path="/telah-selesai" component={Completed} />

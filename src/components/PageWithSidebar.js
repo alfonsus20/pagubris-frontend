@@ -23,7 +23,6 @@ const PageWithSidebar = ({ background, children }) => {
 
   return (
     <div className="relative">
-      <Sidebar />
       <Overlay/>
       {/* <div className = {`${(!open || width > 768) && 'hidden'} overlay h-full w-full absolute bg-black z-10 opacity-20`}></div> */}
       <div className="pt-24 relative left-96 px-12 beside-sidebar">{children}</div>

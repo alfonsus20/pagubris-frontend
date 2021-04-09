@@ -21,7 +21,7 @@ const PostThread = () => {
     if (success) {
       history.push("/linimasa");
     }
-  }, [success, dispatch]);
+  }, [success, dispatch, history]);
 
   return (
     <PageWithSidebar>

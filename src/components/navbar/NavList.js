@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { logout } from "../../actions/userActions";
 import { useDispatch } from "react-redux";
 
-const NavList = ({ list, menuVisible, mobile, setMenuVisible }) => {
+const NavList = ({ list }) => {
   const dispatch = useDispatch();
 
   return (
@@ -43,7 +43,6 @@ const NavList = ({ list, menuVisible, mobile, setMenuVisible }) => {
             <li
               key={id}
               className="py-4 px-2 text-lg"
-              onClick={() => setMenuVisible(!menuVisible)}
             >
               <Link to={navItem.link}>{navItem.name}</Link>
             </li>

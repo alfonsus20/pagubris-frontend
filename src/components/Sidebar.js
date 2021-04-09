@@ -28,7 +28,6 @@ const Sidebar = ({ mobile }) => {
     location.pathname === "/login" ||
     location.pathname === "/signup";
 
-
   const variants = {
     hidden: {
       left: "-100%",
@@ -67,6 +66,8 @@ const Sidebar = ({ mobile }) => {
                   style={{ color: "#606060" }}
                 >
                   <Link
+                    to="/"
+                    key={id}
                     onClick={() => {
                       dispatch(logout());
                       dispatch(toggleSidebar());
@@ -85,6 +86,7 @@ const Sidebar = ({ mobile }) => {
               <li
                 className="w-full p-2 my-4 rounded-r-full font-semibold"
                 style={{ color: "#606060" }}
+                key={id}
               >
                 <Link
                   to={x.link}
@@ -158,10 +160,12 @@ const Sidebar = ({ mobile }) => {
                       if (x.name === "Logout") {
                         return (
                           <li
+                            key={id}
                             className="w-full p-2 my-4 rounded-r-full font-semibold"
                             style={{ color: "#606060" }}
                           >
                             <Link
+                              to="/"
                               onClick={() => {
                                 dispatch(logout());
                                 dispatch(toggleSidebar());
@@ -178,6 +182,7 @@ const Sidebar = ({ mobile }) => {
                       }
                       return (
                         <li
+                          key={id}
                           className="w-full p-2 my-4 rounded-r-full font-semibold"
                           style={{ color: "#606060" }}
                         >

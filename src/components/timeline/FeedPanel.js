@@ -1,28 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TextField from "../form/TextField";
 import Feed from "./Feed";
 
-import { useDispatch, useSelector } from "react-redux";
-import { listThreads } from "../../actions/threadActions";
-
-const FeedPanel = () => {
-  const dispatch = useDispatch();
-  const { threads, loading } = useSelector((state) => state.listThreads);
-
-  useEffect(() => {
-    dispatch(listThreads());
-  }, [dispatch]);
+const FeedPanel = ({ search, loading, threads }) => {
 
   return (
     <>
-      <div>
-        <TextField
-          placeholder="Lihat bagaimana cara ..."
-          width="full"
-          bgColor="light-gray"
-          rounded="md"
-        />
-      </div>
+      {search && (
+        <div>
+          <TextField
+            placeholder="Lihat bagaimana cara ..."
+            width="full"
+            bgColor="light-gray"
+            rounded="md"
+          />
+        </div>
+      )}
       <div className="blur">
         {loading
           ? "Loading ...."
@@ -39,6 +32,10 @@ const FeedPanel = () => {
       </div>
     </>
   );
+};
+
+FeedPanel.defaultProps = {
+  search: true,
 };
 
 export default FeedPanel;

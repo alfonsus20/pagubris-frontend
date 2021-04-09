@@ -68,9 +68,9 @@ textarea {
   border-radius: 10px;
 }
 
-.nav {
+/* .nav {
   height: calc(100vh - 4rem);
-}
+} */
 
 .beside-sidebar {
   width: calc(100% - 25rem);
@@ -82,7 +82,7 @@ textarea {
     left: 0;
   }
   .sidebar{
-    margin-top: 60px;
+    margin-top: 76.8px;
   }
 }
 

@@ -18,10 +18,10 @@ import {
   SIDEBAR_CLOSE,
   SIDEBAR_OPEN,
 } from "./constants/sidebarConstants";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import useWindowDimensions from "./utils/window-dimension";
 import { useEffect } from "react";
-import Overlay from "./components/Overlay";
+import Spotlight from "./pages/Spotlight";
 
 const App = () => {
   const { width } = useWindowDimensions();
@@ -48,6 +48,7 @@ const App = () => {
         <PrivateRoute path="/post-answer" component={PostAnswer} />
         <PrivateRoute path="/post-thread" component={PostThread} />
         <PrivateRoute path="/linimasa" component={Timeline} />
+        <PrivateRoute path="/sorotan" component={Spotlight} />
         <AuthRoute path="/login" component={Login} />
         <AuthRoute path="/signup" component={SignUp} />
         <Route path="/" exact component={Home} />

@@ -1,7 +1,5 @@
 import React from "react";
 import Answer from "../components/Answer";
-import Container from "../components/Container";
-import Sidebar from "../components/Sidebar";
 import foto from "../assets/pictures/marsyalina.svg";
 import PageWithSidebar from "../components/PageWithSidebar";
 

@@ -8,6 +8,7 @@ import { TAGS_DUMMY } from "../utils/constants";
 import Tag from "../components/Tag";
 import Footer from "../components/Footer";
 import Overlay from "../components/Overlay";
+import SpotlightComponent from "../components/SpotlightComponent";
 
 const Home = () => {
   return (
@@ -64,30 +65,16 @@ const Home = () => {
         <Container center direction="col" additional="overflow-hidden">
           <h2 className="text-4xl text-center mb-4 font-extrabold">Sorotan</h2>
           <div className="flex flex-col lg:flex-row">
-            <div className="flex flex-col md:flex-row w-full lg:w-8/12 shadow-2xl rounded-xl py-6 px-8">
-              <div className="w-full lg:w-6/12 flex items-center">
-                <img src={fotolisa} alt="Foto Lisa" className="w-full m-auto" />
-              </div>
-              <div className="w-full lg:w-6/12 text-justify">
-                <h4 className="text-2xl font-bold mt-4 lg:mt-0">Lisa Anisah</h4>
-                <p className="my-4 lg:my-4 text-xl">
-                  Aku adalah seorang ibu rumah tangga yang hobi dalam dunia
+            <SpotlightComponent
+              image={fotolisa}
+              name="Lisa Anisah"
+              content="Aku adalah seorang ibu rumah tangga yang hobi dalam dunia
                   otomotif, sebenarnya tuntutan kehidupan ku dalam keluarga
                   nomor 1, akan tetapi interest ku dalam dunia otomotif sudah ku
                   geluti selama dibangku perkuliahan, apa yang aku dapatkan
                   tentang otomotif tidak serta merta aku gunakan untuk diriku
-                  sendiri.
-                </p>
-                <div className="flex space-x-4 mt-4">
-                  <Button text="Donasi" bgColor="purple" color="white" />
-                  <Button
-                    text="Penyelesaian"
-                    bgColor="semi-gray"
-                    color="white"
-                  />
-                </div>
-              </div>
-            </div>
+                  sendiri."
+            />
             <div className="flex flex-col items-center w-full lg:w-4/12">
               <div className="text-center text-white rounded-t-full bg-gray py-4 w-44 mt-8 lg:mt-0">
                 Tagar

@@ -13,7 +13,7 @@ const Container = ({
     <div
       className={`flex flex-col flex-wrap lg:flex-${direction}  ${
         center && "justify-center items-center"
-      } relative ${additional} ${start && 'mt-24'}`}
+      } relative ${additional} ${start && 'mt-24'} container`}
       style={{ padding }}
       id={id}
     >

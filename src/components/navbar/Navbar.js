@@ -9,8 +9,8 @@ const Navbar = ({ list }) => {
   return (
     <div>
       <div
-        style={{ padding: "1rem 7%", maxWidth: 1600 }}
-        className={`z-20 fixed flex flex-col lg:flex-row bg-white w-full`}
+        style={{ maxWidth: 1600 }}
+        className={`z-20 fixed flex flex-col lg:flex-row bg-white w-full p-4 md:px-8`}
       >
         <NavLogo
           image={logo}

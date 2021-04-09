@@ -20,7 +20,7 @@ const Overlay = () => {
       dispatch({ type: SIDEBAR_LOADING });
       dispatch({ type: SIDEBAR_CLOSE });
     }
-  }, [width]);
+  }, [width, dispatch]);
 
   return (
     <div

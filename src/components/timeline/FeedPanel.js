@@ -3,7 +3,7 @@ import TextField from "../form/TextField";
 import Feed from "./Feed";
 
 const FeedPanel = ({ search, loading, threads }) => {
-
+  
   return (
     <>
       {search && (

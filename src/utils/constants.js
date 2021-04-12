@@ -9,7 +9,6 @@ export const MENU_LIST = [
     { name: "Sorotan", link: "/sorotan" , icon:'fas fa-fire' },
     { name: "Telah Selesai", link: "/telah-selesai", icon:  'fas fa-check'},
     { name: "Pesan", link: "/pesan", icon:  'fas fa-envelope'},
-    { name: "Logout", link: "/logout" , icon: 'fas fa-sign-out-alt'},
   ],
 ];
 

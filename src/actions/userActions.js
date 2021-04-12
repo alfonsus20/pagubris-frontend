@@ -10,6 +10,10 @@ import {
   USER_INFO_SUCCESS,
   USER_INFO_FAIL,
   USER_INFO_RESET,
+  EDIT_PROFILE_REQUEST,
+  EDIT_PROFILE_SUCCESS,
+  EDIT_PROFILE_FAIL,
+  EDIT_PROFILE_RESET,
 } from "../constants/userConstants";
 import pagubris from "../api/pagubris";
 
@@ -78,10 +82,27 @@ export const getUserInfo = () => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await pagubris.get("/auth/me", config);
+    const { data } = await pagubris.get("/profile", config);
     dispatch({ type: USER_INFO_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: USER_INFO_FAIL, payload: error.response.data });
+  }
+};
+
+export const editProfile = (userData) => async (dispatch) => {
+  try {
+    dispatch({ type: EDIT_PROFILE_REQUEST });
+    const config = {
+      headers: {
+        Authorization: getToken(),
+        "Content-Type": "application/json",
+      },
+    };
+    const { data } = await pagubris.put("/profile", userData, config);
+    dispatch({ type: EDIT_PROFILE_SUCCESS, payload: data });
+    dispatch({ type: USER_INFO_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: EDIT_PROFILE_FAIL, payload: error.response.data });
   }
 };
 

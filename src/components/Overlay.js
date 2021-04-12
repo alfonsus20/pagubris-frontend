@@ -6,11 +6,13 @@ import {
   SIDEBAR_CLOSE,
   SIDEBAR_LOADING,
 } from "../constants/sidebarConstants";
+import { useLocation } from "react-router-dom";
 
-const Overlay = () => {
+const Overlay = ({ ...rest }) => {
   const { width } = useWindowDimensions();
   const dispatch = useDispatch();
   const { open } = useSelector((state) => state.sidebar);
+  const location = useLocation();
 
   useEffect(() => {
     if (width > 768) {
@@ -26,7 +28,10 @@ const Overlay = () => {
     <div
       className={`${
         (!open || width > 768) && "hidden"
-      } overlay h-screen w-full absolute bg-black z-10 opacity-20`}
+      } overlay  w-full absolute bg-black z-10 opacity-20 ${
+        location.pathname.startsWith("/pesan/") ? "h-screen" : "h-full"
+      }`}
+      {...rest}
     ></div>
   );
 };

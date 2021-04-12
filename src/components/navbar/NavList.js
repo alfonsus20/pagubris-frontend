@@ -14,10 +14,7 @@ const NavList = ({ list }) => {
       {list.map((navItem, id) => {
         if (navItem.name === "Login") {
           return (
-            <li
-              key={id}
-              className="py-4 px-2 text-lg"
-            >
+            <li key={id} className="py-4 px-2 text-lg">
               <Link
                 to={navItem.link}
                 className="linimasa px-8 py-2 text-white font-bold rounded-full"
@@ -26,24 +23,9 @@ const NavList = ({ list }) => {
               </Link>
             </li>
           );
-        } else if (navItem.name === "Logout") {
-          return (
-            <li
-              key={id}
-              className="py-4 px-2 text-lg cursor-pointer"
-              onClick={() => {
-                dispatch(logout());
-              }}
-            >
-              {navItem.name}
-            </li>
-          );
         } else {
           return (
-            <li
-              key={id}
-              className="py-4 px-2 text-lg"
-            >
+            <li key={id} className="py-4 px-2 text-lg">
               <Link to={navItem.link}>{navItem.name}</Link>
             </li>
           );

@@ -5,11 +5,13 @@
   "homepage": ".",
   "dependencies": {
     "@craco/craco": "^6.1.1",
+    "@emotion/core": "^11.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "framer-motion": "^4.1.2",
+    "notyf": "^3.9.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
@@ -17,6 +19,7 @@
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.4.0",
     "react-scripts": "4.0.3",
+    "react-spinners": "^0.10.6",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
@@ -52,5 +55,5 @@
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
-  "proxy" : "https://api.pagubris.my.id/v1/"
+  "proxy": "https://api.pagubris.my.id/v1/"
 }

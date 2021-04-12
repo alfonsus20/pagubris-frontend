@@ -9,13 +9,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUserInfo } from "../../actions/userActions";
 import { motion } from "framer-motion";
 import { MENU_LIST } from "../../utils/constants";
-import { toggleSidebar } from "../../actions/sidebarActions";
 import { logout } from "../../actions/userActions";
 import SidebarMenu from "./SidebarMenu";
+import SyncLoader from "react-spinners/SyncLoader";
 
 const Sidebar = ({ mobile }) => {
   const { pathname } = useLocation();
-  const { userData, loading } = useSelector((state) => state.userInfo);
+  const { userData, loading, isAuthenticated } = useSelector(
+    (state) => state.userInfo
+  );
   const dispatch = useDispatch();
   const { open, loading: loadingSidebar } = useSelector(
     (state) => state.sidebar
@@ -37,10 +39,10 @@ const Sidebar = ({ mobile }) => {
       left: "auto",
       opacity: 1,
     },
-  };  
+  };
 
   useEffect(() => {
-    if (userData && !userData.name) {
+    if (userData && !userData.name && isAuthenticated) {
       dispatch(getUserInfo());
     }
   }, [dispatch, userData]);
@@ -61,6 +63,7 @@ const Sidebar = ({ mobile }) => {
     );
   }
 
+
   return (
     <>
       <motion.div
@@ -72,10 +75,14 @@ const Sidebar = ({ mobile }) => {
           <>
             <div className="bg-light-blue px-4 py-4 rounded-xl">
               <div className="flex flex-row items-center justify-around ">
-                <img src={nopic} className="w-28 h-28 rounded-full" />
-                <h3 className="text-xl font-bold ml-4">
-                  {!loading ? userData.name : "Loading..."}
-                </h3>
+                <div className='w-1/2 grid place-items-center'> 
+                  <img src={nopic} className="w-28 h-28 rounded-full" />
+                </div>
+                <div className='w-1/2 grid place-items-center'>
+                  <h3 className="text-xl font-bold">
+                    {!loading ? userData.name : <SyncLoader color = "#7868E6"  size = {10}/>}
+                  </h3>
+                </div>
               </div>
               <div className="flex flex-row">
                 <div className="flex justify-around text-sm text-center w-6/12 items-center">
@@ -101,14 +108,6 @@ const Sidebar = ({ mobile }) => {
                   </table>
                 </div>
                 <div className="w-6/12 grid place-items-center">
-                  {/* <Button
-                    text="Lihat Profile"
-                    bgColor="semi-purple"
-                    px={4}
-                    py={2}
-                    color="white"
-                    link ='/edit-profil'
-                  /> */}
                   <Button
                     text="Edit Profile"
                     bgColor="purple"
@@ -116,6 +115,14 @@ const Sidebar = ({ mobile }) => {
                     py={2}
                     color="white"
                     link="/edit-profil"
+                  />
+                  <Button
+                    text="Logout"
+                    bgColor="red"
+                    px={4}
+                    py={2}
+                    color="white"
+                    onClick={() => dispatch(logout())}
                   />
                 </div>
               </div>

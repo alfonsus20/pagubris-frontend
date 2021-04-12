@@ -8,10 +8,12 @@ import {
 } from "../constants/sidebarConstants";
 import Overlay from "./Overlay";
 import {useLocation} from "react-router-dom";
+import { toggleSidebar } from "../actions/sidebarActions";
 
-const PageWithSidebar = ({ children, bgColor }) => {
-  const { width } = useWindowDimensions();
+const PageWithSidebar = ({ children }) => {
   const location = useLocation();
+
+  const { width } = useWindowDimensions();
   const dispatch = useDispatch();
   useEffect(() => {
     if (width > 768) {
@@ -25,8 +27,10 @@ const PageWithSidebar = ({ children, bgColor }) => {
 
   return (
     <div className="relative">
-      <Overlay />
-      <div className={`pt-24 relative left-96 px-4 md:px-12 beside-sidebar chat-panel`}>
+      <Overlay onClick = {()=> dispatch(toggleSidebar())}/>
+      <div className={`pt-24 relative left-96 px-4 md:px-12 beside-sidebar ${
+        location.pathname.startsWith("/pesan/") ? "chat-panel" : ""
+      }`}>
         {children}
       </div>
     </div>

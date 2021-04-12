@@ -5,6 +5,7 @@ import {
   userLoginReducer,
   userSignUpReducer,
   userInfoReducer,
+  userEditProfileReducer,
 } from "./reducers/userReducers";
 import {
   listThreadsReducer,
@@ -15,6 +16,7 @@ import { sidebarReducer } from "./reducers/sidebarReducers";
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userSignUp: userSignUpReducer,
+  userEditProfile: userEditProfileReducer,
   userInfo: userInfoReducer,
   postThread: postThreadReducer,
   listThreads: listThreadsReducer,
@@ -24,7 +26,7 @@ const reducer = combineReducers({
 const isAuthenticated = localStorage.getItem("token") ? true : false;
 
 const initialState = {
-  userInfo: { isAuthenticated , userData: {} },
+  userInfo: { isAuthenticated, userData: {} },
   sidebar: { open: false },
 };
 

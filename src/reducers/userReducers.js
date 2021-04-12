@@ -9,6 +9,10 @@ import {
   USER_INFO_SUCCESS,
   USER_INFO_REQUEST,
   USER_INFO_FAIL,
+  EDIT_PROFILE_SUCCESS,
+  EDIT_PROFILE_REQUEST,
+  EDIT_PROFILE_FAIL,
+  EDIT_PROFILE_RESET,
   USER_INFO_RESET,
 } from "../constants/userConstants";
 
@@ -48,7 +52,7 @@ export const userSignUpReducer = (state = {}, action) => {
 export const userInfoReducer = (state = { userData: {} }, action) => {
   switch (action.type) {
     case USER_INFO_REQUEST:
-      return { loading: true, ...state};
+      return { loading: true, ...state };
     case USER_INFO_SUCCESS:
       return {
         loading: false,
@@ -58,6 +62,25 @@ export const userInfoReducer = (state = { userData: {} }, action) => {
     case USER_INFO_FAIL:
       return { loading: false, error: action.payload };
     case USER_INFO_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
+export const userEditProfileReducer = (state = {}, action) => {
+  switch (action.type) {
+    case EDIT_PROFILE_REQUEST:
+      return {...state, loading: true };
+    case EDIT_PROFILE_SUCCESS:
+      return {
+        loading: false,
+        data: action.payload,
+        success: true,
+      };
+    case EDIT_PROFILE_FAIL:
+      return { loading: false, error: action.payload };
+    case EDIT_PROFILE_RESET:
       return {};
     default:
       return state;

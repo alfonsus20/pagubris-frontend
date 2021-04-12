@@ -11,8 +11,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [name, setName] = useState("");
   const [gender, setGender] = useState("MALE");
   const dispatch = useDispatch();
 
@@ -32,8 +31,7 @@ const SignUp = () => {
       signup({
         email,
         username,
-        first_name: firstName,
-        last_name: lastName,
+        name,
         gender,
         password,
         password_confirmation: confirmPassword,
@@ -51,24 +49,14 @@ const SignUp = () => {
           <Link to="/login">Masuk</Link>
         </div>
         <form className="px-4 md:px-12 py-8" onSubmit={handleSubmit}>
-          <label htmlFor="username">Nama Depan</label>
+          <label htmlFor="username">Nama</label>
           <TextField
             width="full"
             bgColor="gray"
             type="text"
             rounded="full"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-            required
-          />
-          <label htmlFor="username">Nama Belakang</label>
-          <TextField
-            width="full"
-            bgColor="gray"
-            type="text"
-            rounded="full"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
           <label htmlFor="username">Username</label>

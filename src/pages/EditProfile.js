@@ -39,7 +39,7 @@ const EditProfile = () => {
         </div>
         <div className="w-full md:w-1/2 flex flex-col mt-8 md:mt-0">
           <h3 className="text-center text-xl font-bold">Edit Profile</h3>
-          <label>Nama Panjang</label>
+          <label>Nama</label>
           <TextField
             bgColor="white"
             rounded="lg"
@@ -47,6 +47,15 @@ const EditProfile = () => {
             py={2}
             width="full"
             type="text"
+          />
+          <label>Username</label>
+          <TextField
+            bgColor="white"
+            rounded="lg"
+            px={2}
+            py={2}
+            width="full"
+            type="email"
           />
           <label>Email</label>
           <TextField
@@ -73,8 +82,8 @@ const EditProfile = () => {
               Lainnya
             </option>
           </select>
-          <label>Deskripsi</label>
-          <TextArea rounded = 'lg' height = '40'/>
+          <label>Bio</label>
+          <TextArea rounded = 'lg' height = '28'/>
           <div className="grid place-items-center mt-4">
             <Button
               text="Update Informasi"

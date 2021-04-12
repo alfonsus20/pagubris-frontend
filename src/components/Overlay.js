@@ -26,7 +26,7 @@ const Overlay = () => {
     <div
       className={`${
         (!open || width > 768) && "hidden"
-      } overlay h-full w-full absolute bg-black z-10 opacity-20`}
+      } overlay h-screen w-full absolute bg-black z-10 opacity-20`}
     ></div>
   );
 };

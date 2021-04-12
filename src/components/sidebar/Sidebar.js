@@ -15,7 +15,7 @@ import SidebarMenu from "./SidebarMenu";
 
 const Sidebar = ({ mobile }) => {
   const { pathname } = useLocation();
-  const { userInfo, loading } = useSelector((state) => state.userInfo);
+  const { userData, loading } = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const { open, loading: loadingSidebar } = useSelector(
     (state) => state.sidebar
@@ -34,16 +34,16 @@ const Sidebar = ({ mobile }) => {
       opacity: 0,
     },
     visible: {
-      left: "0",
+      left: "auto",
       opacity: 1,
     },
-  };
+  };  
 
   useEffect(() => {
-    if (userInfo && !userInfo.name) {
+    if (userData && !userData.name) {
       dispatch(getUserInfo());
     }
-  }, [dispatch, userInfo]);
+  }, [dispatch, userData]);
 
   if (exception && !mobile) {
     return null;
@@ -68,13 +68,13 @@ const Sidebar = ({ mobile }) => {
         animate={loadingSidebar || !open ? "hidden" : "visible"}
         className={`fixed z-20 w-full xs:w-100 md:mt-24 px-8 overflow-y-scroll h-auto top-0 bottom-0 bg-white lg:block sidebar`}
       >
-        {userInfo && userInfo.name && (
+        {userData && userData.name && (
           <>
             <div className="bg-light-blue px-4 py-4 rounded-xl">
               <div className="flex flex-row items-center justify-around ">
                 <img src={nopic} className="w-28 h-28 rounded-full" />
                 <h3 className="text-xl font-bold ml-4">
-                  {!loading ? userInfo.name : "Loading..."}
+                  {!loading ? userData.name : "Loading..."}
                 </h3>
               </div>
               <div className="flex flex-row">

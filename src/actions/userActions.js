@@ -12,7 +12,6 @@ import {
   USER_INFO_RESET,
 } from "../constants/userConstants";
 import pagubris from "../api/pagubris";
-// import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
   try {

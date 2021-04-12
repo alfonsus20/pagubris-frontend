@@ -24,6 +24,8 @@ import { useEffect } from "react";
 import Spotlight from "./pages/Spotlight";
 import EditProfile from "./pages/EditProfile";
 import ViewProfile from "./pages/ViewProfile";
+import ChatPreview from "./pages/ChatPreview";
+import ChatPanel from "./pages/ChatPanel";
 
 const App = () => {
   const { width } = useWindowDimensions();
@@ -53,6 +55,8 @@ const App = () => {
         <PrivateRoute path="/lihat-profil" component={ViewProfile} />
         <PrivateRoute path="/edit-profil" component={EditProfile} />
         <PrivateRoute path="/sorotan" component={Spotlight} />
+        <PrivateRoute path="/pesan" component={ChatPreview} exact />
+        <PrivateRoute path="/pesan/:id" component={ChatPanel} />
         <AuthRoute path="/login" component={Login} />
         <AuthRoute path="/signup" component={SignUp} />
         <Route path="/" exact component={Home} />

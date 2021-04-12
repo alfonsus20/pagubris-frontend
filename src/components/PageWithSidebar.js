@@ -7,9 +7,11 @@ import {
   SIDEBAR_LOADING,
 } from "../constants/sidebarConstants";
 import Overlay from "./Overlay";
+import {useLocation} from "react-router-dom";
 
-const PageWithSidebar = ({ children }) => {
+const PageWithSidebar = ({ children, bgColor }) => {
   const { width } = useWindowDimensions();
+  const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
     if (width > 768) {
@@ -24,7 +26,7 @@ const PageWithSidebar = ({ children }) => {
   return (
     <div className="relative">
       <Overlay />
-      <div className="pt-24 relative left-96 px-4 md:px-12 beside-sidebar">
+      <div className={`pt-24 relative left-96 px-4 md:px-12 beside-sidebar chat-panel`}>
         {children}
       </div>
     </div>
@@ -33,6 +35,7 @@ const PageWithSidebar = ({ children }) => {
 
 PageWithSidebar.defaultProps = {
   background: true,
+  bgColor : 'white'
 };
 
 export default PageWithSidebar;

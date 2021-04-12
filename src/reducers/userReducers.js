@@ -10,7 +10,6 @@ import {
   USER_INFO_REQUEST,
   USER_INFO_FAIL,
   USER_INFO_RESET,
-
 } from "../constants/userConstants";
 
 export const userLoginReducer = (state = {}, action) => {
@@ -18,7 +17,7 @@ export const userLoginReducer = (state = {}, action) => {
     case LOGIN_REQUEST:
       return { loading: true };
     case LOGIN_SUCCESS:
-      return { loading: false, success: true, isAuthenticated: true };
+      return { loading: false, success: true };
     case LOGIN_FAIL:
       return {
         loading: false,
@@ -46,12 +45,16 @@ export const userSignUpReducer = (state = {}, action) => {
   }
 };
 
-export const userInfoReducer = (state = { userInfo: {} }, action) => {
+export const userInfoReducer = (state = { userData: {} }, action) => {
   switch (action.type) {
     case USER_INFO_REQUEST:
-      return { loading: true };
+      return { loading: true, ...state};
     case USER_INFO_SUCCESS:
-      return { loading: false, userInfo: action.payload };
+      return {
+        loading: false,
+        userData: action.payload,
+        isAuthenticated: true,
+      };
     case USER_INFO_FAIL:
       return { loading: false, error: action.payload };
     case USER_INFO_RESET:

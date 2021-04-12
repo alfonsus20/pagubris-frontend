@@ -13,7 +13,7 @@ const Navlogo = ({ image, imageTitle }) => {
         <h2 className="text-2xl font-bold ml-8 hidden md:block">pagubris</h2>
       </Link>
       <i
-        className="fas fa-bars ml-auto my-auto text-xl block lg:hidden cursor-pointer"
+        className="fas fa-bars ml-auto my-auto text-xl block md:hidden cursor-pointer"
         onClick={() => dispatch(toggleSidebar())}
       ></i>
     </div>

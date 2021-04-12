@@ -24,8 +24,7 @@ const reducer = combineReducers({
 const isAuthenticated = localStorage.getItem("token") ? true : false;
 
 const initialState = {
-  userLogin: { isAuthenticated },
-  userInfo: { userInfo: {} },
+  userInfo: { isAuthenticated , userData: {} },
   sidebar: { open: false },
 };
 

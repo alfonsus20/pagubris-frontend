@@ -9,7 +9,6 @@ import {
 } from "../constants/threadConstants";
 import { getToken } from "./userActions";
 import pagubris from "../api/pagubris";
-// import axios from "axios";
 
 export const postThread = (content) => async (dispatch) => {
   try {

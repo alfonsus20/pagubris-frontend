@@ -6,11 +6,15 @@ import {
   userSignUpReducer,
   userInfoReducer,
   userEditProfileReducer,
+  listHighlightsReducer,
 } from "./reducers/userReducers";
 import {
   listThreadsReducer,
   postThreadReducer,
-  listCategoriesReducer
+  listThreadAnswersReducer,
+  listCategoriesReducer,
+  answerThreadReducer,
+  listThreadInnerAnswersReducer
 } from "./reducers/threadReducers";
 import { sidebarReducer } from "./reducers/sidebarReducers";
 
@@ -19,10 +23,14 @@ const reducer = combineReducers({
   userSignUp: userSignUpReducer,
   userEditProfile: userEditProfileReducer,
   userInfo: userInfoReducer,
+  listHighlights: listHighlightsReducer,
   postThread: postThreadReducer,
   listThreads: listThreadsReducer,
+  listThreadAnswers: listThreadAnswersReducer,
+  answerThread : answerThreadReducer,
+  listThreadInnerAnswers : listThreadInnerAnswersReducer,
   sidebar: sidebarReducer,
-  categories: listCategoriesReducer
+  categories: listCategoriesReducer,
 });
 
 const isAuthenticated = localStorage.getItem("token") ? true : false;

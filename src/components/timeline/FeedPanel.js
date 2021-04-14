@@ -19,10 +19,10 @@ const FeedPanel = ({ search, loading, threads }) => {
       <div className="blur">
         {loading
           ? "Loading ...."
-          : threads.map((thread, id) => {
+          : threads.map((thread) => {
               return (
                 <Feed
-                  key={id}
+                  key={thread.id}
                   creator={thread.creator}
                   content={thread.content}
                   threadId={thread.id}

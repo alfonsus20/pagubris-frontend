@@ -14,6 +14,10 @@ import {
   EDIT_PROFILE_FAIL,
   EDIT_PROFILE_RESET,
   USER_INFO_RESET,
+  LIST_HIGHLIGHTS_REQUEST,
+  LIST_HIGHLIGHTS_SUCCESS,
+  LIST_HIGHLIGHTS_FAIL,
+  LIST_HIGHLIGHTS_RESET,
 } from "../constants/userConstants";
 
 export const userLoginReducer = (state = {}, action) => {
@@ -82,6 +86,23 @@ export const userEditProfileReducer = (state = {}, action) => {
       return { loading: false, error: action.payload };
     case EDIT_PROFILE_RESET:
       return {};
+    default:
+      return state;
+  }
+};
+
+export const listHighlightsReducer = (state = { highlights: [] }, action) => {
+  switch (action.type) {
+    case LIST_HIGHLIGHTS_REQUEST:
+      return { loading: true };
+    case LIST_HIGHLIGHTS_SUCCESS:
+      return { loading: false, success: true, highlights: action.payload };
+    case LIST_HIGHLIGHTS_FAIL:
+      return {
+        loading: false,
+        success: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

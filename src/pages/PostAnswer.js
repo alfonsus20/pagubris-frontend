@@ -1,15 +1,32 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import PageWithSidebar from "../components/PageWithSidebar";
 import lulus from "../assets/pictures/lulus.png";
 import TextArea from "../components/form/TextArea";
 import Button from "../components/Button";
+import { useParams, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { answerThread } from "../actions/threadActions";
+import { ANSWER_THREAD_RESET } from "../constants/threadConstants";
 
 const PostAnswer = () => {
+  const { threadId } = useParams();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { success } = useSelector((state) => state.answerThread);
+
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(answerThread({ content, id : threadId }));
   };
+
+  useEffect(() => {
+    if (success) {
+      history.push(`/${threadId}/answers`);
+    }
+    dispatch({ type: ANSWER_THREAD_RESET });
+  }, [success]);
 
   return (
     <PageWithSidebar>
@@ -29,6 +46,8 @@ const PostAnswer = () => {
                 bgColor="white"
                 height="40"
                 placeholder="Tuliskan solusi Anda secara lebih terperinci"
+                onChange={(e) => setContent(e.target.value)}
+                value={content}
               />
             </div>
             <div className="w-full md:w-4/12">
@@ -41,14 +60,14 @@ const PostAnswer = () => {
               />
             </div>
           </div>
+          <Button
+            text="Unggah"
+            type="submit"
+            bgColor="semi-purple hover:bg-purple"
+            color="white"
+            additional="ml-auto"
+          />
         </form>
-        <Button
-          text="Unggah"
-          type="submit"
-          bgColor="semi-gray"
-          color="white"
-          additional="ml-auto"
-        />
       </div>
     </PageWithSidebar>
   );

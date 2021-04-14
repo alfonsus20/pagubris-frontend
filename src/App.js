@@ -49,10 +49,10 @@ const App = () => {
         <PrivateRoute path="/kategori" component={Category} />
         <PrivateRoute path="/telah-selesai" component={Completed} />
         <PrivateRoute path="/:threadId/answers" component={ViewAnswer} />
-        <PrivateRoute path="/post-answer" component={PostAnswer} />
+        <PrivateRoute path="/:threadId/post-answer" component={PostAnswer} />
         <PrivateRoute path="/post-thread" component={PostThread} />
         <PrivateRoute path="/linimasa" component={Timeline} />
-        <PrivateRoute path="/lihat-profil" component={ViewProfile} />
+        <PrivateRoute path="/lihat-profil/:userId" component={ViewProfile} />
         <PrivateRoute path="/edit-profil" component={EditProfile} />
         <PrivateRoute path="/sorotan" component={Spotlight} />
         <PrivateRoute path="/pesan" component={ChatPreview} exact />

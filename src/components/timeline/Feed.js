@@ -18,7 +18,7 @@ const Feed = ({ creator, content, threadId }) => {
       </div>
       <div className="w-9/12 flex flex-col justify-between ml-8 lg:ml-0 text-lg">
         <strong className="text-lg">
-          <Link to={`/lihat-profil`}>
+          <Link to={`/lihat-profil/${creator.id}`}>
            {name}
           </Link>
         </strong>
@@ -28,7 +28,7 @@ const Feed = ({ creator, content, threadId }) => {
             <Button
               text="Jawab"
               leftIcon={jawabIcon}
-              link={`/post-answer`}
+              link={`/${threadId}/post-answer`}
               px={0}
               py={0}
             />

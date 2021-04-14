@@ -14,6 +14,10 @@ import {
   EDIT_PROFILE_SUCCESS,
   EDIT_PROFILE_FAIL,
   EDIT_PROFILE_RESET,
+  LIST_HIGHLIGHTS_REQUEST,
+  LIST_HIGHLIGHTS_SUCCESS,
+  LIST_HIGHLIGHTS_FAIL,
+  LIST_HIGHLIGHTS_RESET,
 } from "../constants/userConstants";
 import pagubris from "../api/pagubris";
 
@@ -103,6 +107,22 @@ export const editProfile = (userData) => async (dispatch) => {
     dispatch({ type: USER_INFO_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: EDIT_PROFILE_FAIL, payload: error.response.data });
+  }
+};
+
+export const listHighlights = () => async (dispatch) => {
+  try {
+    dispatch({ type: LIST_HIGHLIGHTS_REQUEST });
+    const config = {
+      headers: {
+        Authorization: getToken(),
+        "Content-Type": "application/json",
+      },
+    };
+    const { data } = await pagubris.get("/highlight", config);
+    dispatch({ type: LIST_HIGHLIGHTS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: LIST_HIGHLIGHTS_FAIL, payload: error.response.data });
   }
 };
 

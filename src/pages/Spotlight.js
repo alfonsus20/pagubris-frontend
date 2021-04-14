@@ -11,25 +11,7 @@ const Spotlight = () => {
 
   useEffect(() => {
     dispatch(listHighlights());
-  }, []);
-
-  // const data = [
-  //   {
-  //     nama: "Lisa Blackpink",
-  //     image: fotolisa,
-  //     content: "Memasak adalah keahlianku",
-  //   },
-  //   {
-  //     nama: "Lisa Jaksel",
-  //     image: fotolisa,
-  //     content: "Menjahit adalah keahlianku",
-  //   },
-  //   {
-  //     nama: "Lisa Meda",
-  //     image: fotolisa,
-  //     content: "Servis galon",
-  //   },
-  // ];
+  }, [dispatch]);
 
   return (
     <PageWithSidebar>

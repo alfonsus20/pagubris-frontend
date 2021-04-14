@@ -63,7 +63,7 @@ const EditProfile = () => {
             alt="foto-profile"
             className="w-40 h-40 rounded-full my-4"
           />
-          <p className="text-center">{userData.name}</p>
+          <p className="text-center">{!loading ? userData.name : 'Loading...'}</p>
           <div className="flex flex-row text-sm text-center space-x-12 my-4">
             <div className="flex flex-col">
               <strong>20</strong>

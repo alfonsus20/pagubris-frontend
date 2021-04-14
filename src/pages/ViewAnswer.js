@@ -14,7 +14,7 @@ const ViewAnswer = () => {
 
   useEffect(() => {
     dispatch(getThreadAnswers(threadId));
-  }, [success]);
+  }, [success, dispatch, threadId]);
 
   return (
     <PageWithSidebar>

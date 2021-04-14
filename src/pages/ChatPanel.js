@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import ChatBox from "../components/chat/ChatBox";
+import React from "react";
 import PageWithSidebar from "../components/PageWithSidebar";
 import foto from "../assets/pictures/marsyalina.svg";
 import ChatContainer from "../components/chat/ChatContainer";
 import TextArea from "../components/form/TextArea";
 
 const ChatPanel = () => {
-  const { id } = useParams();
-
   return (
     <PageWithSidebar>
       <div className='flex flex-row items-center space-x-4 bg-light-gray p-2'>

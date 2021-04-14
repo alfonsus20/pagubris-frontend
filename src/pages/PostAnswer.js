@@ -26,7 +26,7 @@ const PostAnswer = () => {
       history.push(`/${threadId}/answers`);
     }
     dispatch({ type: ANSWER_THREAD_RESET });
-  }, [success]);
+  }, [success, dispatch, history, threadId]);
 
   return (
     <PageWithSidebar>
@@ -34,7 +34,7 @@ const PostAnswer = () => {
         <div>
           <h3 className="font-bold text-xl">Upload Video</h3>
           <div>
-            <img src={lulus} className="w-full h-auto my-4" />
+            <img src={lulus} alt = 'foto-jawaban' className="w-full h-auto my-4" />
           </div>
         </div>
         <form onSubmit={handleSubmit}>

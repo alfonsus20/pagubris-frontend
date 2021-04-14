@@ -21,7 +21,7 @@ const Answer = ({ image, name, content, id }) => {
     if (success) {
       dispatch(getThreadAnswers(id));
     }
-  }, [success]);
+  }, [success, dispatch, id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ const Answer = ({ image, name, content, id }) => {
     <div className="my-6 bg-white shadow-xl rounded-md py-6 px-4">
       <div className="flex flex-row ">
         <div className="w-3/12 flex flex-col justify-center items-center text-xl">
-          <img src={image} className="w-20 h-20 rounded-full" />
+          <img src={image} className="w-20 h-20 rounded-full" alt='foto-profile' />
         </div>
         <div className="w-9/12 flex flex-col justify-between">
           <strong className="text-lg">{name}</strong>
@@ -52,7 +52,7 @@ const Answer = ({ image, name, content, id }) => {
             <div>
               <h3 className="font-bold text-xl">Tutorial Video</h3>
               <div>
-                <img src={lulus} className="w-full h-auto my-4" />
+                <img src={lulus} className="w-full h-auto my-4" alt='solusi'/>
               </div>
             </div>
             <div className="flex flex-row space-x-12 mt-4">

@@ -45,7 +45,7 @@ const Sidebar = ({ mobile }) => {
     if (userData && !userData.name && isAuthenticated) {
       dispatch(getUserInfo());
     }
-  }, [dispatch, userData]);
+  }, [dispatch, userData, isAuthenticated]);
 
   if (exception && !mobile) {
     return null;

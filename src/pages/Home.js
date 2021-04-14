@@ -66,7 +66,7 @@ const Home = () => {
           <h2 className="text-4xl text-center mb-4 font-extrabold">Sorotan</h2>
           <div className="flex flex-col lg:flex-row">
             <SpotlightComponent
-              image={fotolisa}
+              image={""}
               name="Lisa Anisah"
               content="Aku adalah seorang ibu rumah tangga yang hobi dalam dunia
                   otomotif, sebenarnya tuntutan kehidupan ku dalam keluarga
@@ -75,7 +75,7 @@ const Home = () => {
                   tentang otomotif tidak serta merta aku gunakan untuk diriku
                   sendiri."
             />
-            <div className="flex flex-col items-center w-full lg:w-4/12">
+            <div className="flex flex-col items-center mb-8 md:ml-8">
               <div className="text-center text-white rounded-t-full bg-gray py-4 w-44 mt-8 lg:mt-0">
                 Tagar
               </div>

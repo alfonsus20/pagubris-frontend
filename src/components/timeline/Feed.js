@@ -13,7 +13,7 @@ const Feed = ({ creator, content, threadId }) => {
         <img
           src={avatar ? avatar : nopic}
           alt={creator}
-          className="w-16 h-16 sm:w-20 h-20 rounded-full"
+          className="w-16 h-auto sm:w-20 rounded-full"
         />
       </div>
       <div className="w-9/12 flex flex-col justify-between ml-8 lg:ml-0 text-lg">

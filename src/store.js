@@ -10,6 +10,7 @@ import {
 import {
   listThreadsReducer,
   postThreadReducer,
+  listCategoriesReducer
 } from "./reducers/threadReducers";
 import { sidebarReducer } from "./reducers/sidebarReducers";
 
@@ -21,6 +22,7 @@ const reducer = combineReducers({
   postThread: postThreadReducer,
   listThreads: listThreadsReducer,
   sidebar: sidebarReducer,
+  categories: listCategoriesReducer
 });
 
 const isAuthenticated = localStorage.getItem("token") ? true : false;

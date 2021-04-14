@@ -25,7 +25,7 @@ const FeedPanel = ({ search, loading, threads }) => {
                   key={id}
                   creator={thread.creator}
                   content={thread.content}
-                  contentId={thread.id}
+                  threadId={thread.id}
                 />
               );
             })}

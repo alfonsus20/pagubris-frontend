@@ -5,6 +5,9 @@ import {
   LIST_THREAD_REQUEST,
   LIST_THREAD_SUCCESS,
   LIST_THREAD_FAIL,
+  LIST_CATEGORY_REQUEST,
+  LIST_CATEGORY_SUCCESS,
+  LIST_CATEGORY_FAIL,
   LIST_THREAD_RESET,
 } from "../constants/threadConstants";
 
@@ -40,6 +43,23 @@ export const listThreadsReducer = (state = { threads: [] }, action) => {
     case LIST_THREAD_RESET:
       return {
         threads: [],
+      };
+    default:
+      return state;
+  }
+};
+
+export const listCategoriesReducer = (state = { categories: [] }, action) => {
+  switch (action.type) {
+    case LIST_CATEGORY_REQUEST:
+      return { loading: true };
+    case LIST_CATEGORY_SUCCESS:
+      return { loading: false, success: true, categories: action.payload };
+    case LIST_CATEGORY_FAIL:
+      return {
+        loading: false,
+        success: false,
+        error: action.payload,
       };
     default:
       return state;

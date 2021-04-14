@@ -6,7 +6,7 @@ import nopic from "../../assets/pictures/nopic.jpeg";
 import { Link } from "react-router-dom";
 
 const Feed = ({ creator, content, threadId }) => {
-  const { first_name, last_name, avatar } = creator;
+  const { name, avatar } = creator;
   return (
     <div className="flex flex-row my-6 bg-white shadow-md md:shadow-xl rounded-md py-6 px-4">
       <div className="w-3/12 flex flex-col justify-center items-center">
@@ -19,7 +19,7 @@ const Feed = ({ creator, content, threadId }) => {
       <div className="w-9/12 flex flex-col justify-between ml-8 lg:ml-0 text-lg">
         <strong className="text-lg">
           <Link to={`/lihat-profil`}>
-            {first_name} {last_name}
+           {name}
           </Link>
         </strong>
         <div>{content}</div>
@@ -37,7 +37,7 @@ const Feed = ({ creator, content, threadId }) => {
             <Button
               text="Lihat"
               leftIcon={lihatIcon}
-              link={`/answer`}
+              link={`/${threadId}/answers`}
               px={0}
               py={0}
             />

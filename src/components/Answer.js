@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import lulus from "../assets/pictures/lulus.png";
 import chevron from "../assets/pictures/chevron-down.svg";
 
-const Answer = ({ image }) => {
+const Answer = ({ image, name, content }) => {
   const [detail, setDetail] = useState(false);
 
   return (
@@ -10,9 +10,9 @@ const Answer = ({ image }) => {
       <div className="flex flex-row ">
         <div className="w-3/12 flex flex-col justify-center items-center text-xl">
           <img src={image} className="w-20 h-20 rounded-full" />
-          <strong>Marsyalina</strong>
         </div>
         <div className="w-9/12 flex flex-col justify-between">
+          <strong className='text-lg'>Marsyalina</strong>
           <div>yuk cek dengan cara ku, gampang</div>
           <div className="flex flex-row justify-between"></div>
         </div>
@@ -24,7 +24,7 @@ const Answer = ({ image }) => {
         />
       </div>
       {detail && (
-        <div className="mt-8">
+        <div className="mt-8 p-4 md:p-8">
           <div>
             <h3 className="font-bold text-xl">Tutorial Video</h3>
             <div>

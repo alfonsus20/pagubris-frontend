@@ -1,27 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import lulus from "../assets/pictures/lulus.png";
-import chevron from "../assets/pictures/chevron-down.svg";
 import TextArea from "./form/TextArea";
 import Button from "./Button";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   answerThread,
-  getThreadAnswers,
 } from "../actions/threadActions";
 import Comment from "./Comment";
+import nopic from "../assets/pictures/nopic.jpeg";
 
 const Answer = ({ image, name, content, id }) => {
   const dispatch = useDispatch();
-  const { success } = useSelector((state) => state.answerThread);
 
   const [detail, setDetail] = useState(false);
   const [answer, setAnswer] = useState("");
-
-  useEffect(() => {
-    if (success) {
-      dispatch(getThreadAnswers(id));
-    }
-  }, [success, dispatch, id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +24,7 @@ const Answer = ({ image, name, content, id }) => {
     <div className="my-6 bg-white shadow-xl rounded-md py-6 px-4">
       <div className="flex flex-row ">
         <div className="w-3/12 flex flex-col justify-center items-center text-xl">
-          <img src={image} className="w-20 h-20 rounded-full" alt='foto-profile' />
+          <img src={image ? image : nopic} className="w-20 h-20 rounded-full" alt='foto-profile' />
         </div>
         <div className="w-9/12 flex flex-col justify-between">
           <strong className="text-lg">{name}</strong>
@@ -40,7 +32,7 @@ const Answer = ({ image, name, content, id }) => {
           <div className="flex flex-row justify-between"></div>
         </div>
         <img
-          src={chevron}
+          src="/assets/chevron-down.svg"
           className={`cursor-pointer transform ${detail && "rotate-180"}`}
           alt="chevron"
           onClick={() => setDetail(!detail)}

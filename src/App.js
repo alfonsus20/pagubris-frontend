@@ -48,8 +48,8 @@ const App = () => {
       <Switch>
         <PrivateRoute path="/kategori" component={Category} />
         <PrivateRoute path="/telah-selesai" component={Completed} />
-        <PrivateRoute path="/:threadId/answers" component={ViewAnswer} />
-        <PrivateRoute path="/:threadId/post-answer" component={PostAnswer} />
+        <PrivateRoute path="/thread/:threadId/answers" component={ViewAnswer} />
+        <PrivateRoute path="/thread/:threadId/post-answer" component={PostAnswer} />
         <PrivateRoute path="/post-thread" component={PostThread} />
         <PrivateRoute path="/linimasa" component={Timeline} />
         <PrivateRoute path="/lihat-profil/:userId" component={ViewProfile} />

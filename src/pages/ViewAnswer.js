@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Answer from "../components/Answer";
-import foto from "../assets/pictures/marsyalina.svg";
 import PageWithSidebar from "../components/PageWithSidebar";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,7 +26,7 @@ const ViewAnswer = () => {
                 <Answer
                   key={answer.id}
                   answers = {answer.answers}
-                  image={foto}
+                  image={answer.creator.avatar}
                   name={answer.creator.name}
                   content={answer.content}
                   id = {answer.id}

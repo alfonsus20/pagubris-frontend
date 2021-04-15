@@ -68,7 +68,7 @@ const Home = () => {
             <SpotlightComponent
               image={""}
               name="Lisa Anisah"
-              content="Aku adalah seorang ibu rumah tangga yang hobi dalam dunia
+              bio="Aku adalah seorang ibu rumah tangga yang hobi dalam dunia
                   otomotif, sebenarnya tuntutan kehidupan ku dalam keluarga
                   nomor 1, akan tetapi interest ku dalam dunia otomotif sudah ku
                   geluti selama dibangku perkuliahan, apa yang aku dapatkan

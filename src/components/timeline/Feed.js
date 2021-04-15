@@ -28,7 +28,7 @@ const Feed = ({ creator, content, threadId }) => {
             <Button
               text="Jawab"
               leftIcon={jawabIcon}
-              link={`/${threadId}/post-answer`}
+              link={`/thread/${threadId}/post-answer`}
               px={0}
               py={0}
             />
@@ -37,7 +37,7 @@ const Feed = ({ creator, content, threadId }) => {
             <Button
               text="Lihat"
               leftIcon={lihatIcon}
-              link={`/${threadId}/answers`}
+              link={`/thread/${threadId}/answers`}
               px={0}
               py={0}
             />

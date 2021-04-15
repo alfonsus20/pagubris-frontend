@@ -7,13 +7,16 @@ import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { answerThread } from "../actions/threadActions";
 import { ANSWER_THREAD_RESET } from "../constants/threadConstants";
+import pagubris from "../api/pagubris";
+import { getToken } from "../actions/userActions";
 
 const PostAnswer = () => {
   const { threadId } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
   const { success } = useSelector((state) => state.answerThread);
-
+  const [uploading, setUploading] = useState(false);
+  const [images, setImages] = useState([]);
   const [content, setContent] = useState("");
 
   const handleSubmit = (e) => {
@@ -21,9 +24,31 @@ const PostAnswer = () => {
     dispatch(answerThread({ content, id : threadId }));
   };
 
+  
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    setUploading(true);
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization : getToken()
+        },
+      };
+      const { data } = await pagubris.post("/api/upload", formData, config);
+      setImages([...images, data]);
+      setUploading(false);
+    } catch (error) {
+      console.log(error);
+      setUploading(false);
+    }
+  };
+
   useEffect(() => {
     if (success) {
-      history.push(`/${threadId}/answers`);
+      history.push(`/thread/${threadId}/answers`);
     }
     dispatch({ type: ANSWER_THREAD_RESET });
   }, [success, dispatch, history, threadId]);
@@ -32,7 +57,7 @@ const PostAnswer = () => {
     <PageWithSidebar>
       <div className="p-8 bg-white rounded-xl">
         <div>
-          <h3 className="font-bold text-xl">Upload Video</h3>
+          <h3 className="font-bold text-xl">Upload Solusi</h3>
           <div>
             <img src={lulus} alt = 'foto-jawaban' className="w-full h-auto my-4" />
           </div>

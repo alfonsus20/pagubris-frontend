@@ -6,7 +6,7 @@ import Button from "../Button";
 import CategoryList from "../category/CategoryList";
 import { useLocation, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserInfo } from "../../actions/userActions";
+import { getUserInfo, getUserProfile } from "../../actions/userActions";
 import { motion } from "framer-motion";
 import { MENU_LIST } from "../../utils/constants";
 import { logout } from "../../actions/userActions";
@@ -63,7 +63,6 @@ const Sidebar = ({ mobile }) => {
     );
   }
 
-
   return (
     <>
       <motion.div
@@ -75,12 +74,16 @@ const Sidebar = ({ mobile }) => {
           <>
             <div className="bg-light-blue px-4 py-4 rounded-xl">
               <div className="flex flex-row items-center justify-around ">
-                <div className='w-1/2 grid place-items-center'> 
+                <div className="w-1/2 grid place-items-center">
                   <img src={nopic} className="w-28 h-28 rounded-full" />
                 </div>
-                <div className='w-1/2 grid place-items-center'>
+                <div className="w-1/2 grid place-items-center">
                   <h3 className="text-xl font-bold">
-                    {!loading ? userData.name : <SyncLoader color = "#7868E6"  size = {10}/>}
+                    {!loading ? (
+                      userData.name
+                    ) : (
+                      <SyncLoader color="#7868E6" size={10} />
+                    )}
                   </h3>
                 </div>
               </div>
@@ -101,8 +104,8 @@ const Sidebar = ({ mobile }) => {
                         <th>Diikuti</th>
                       </tr>
                       <tr>
-                        <td>18 orang</td>
-                        <td>5 orang</td>
+                        <td>0 orang</td>
+                        <td>1 orang</td>
                       </tr>
                     </tbody>
                   </table>

@@ -8,6 +8,8 @@ import {
   userEditProfileReducer,
   listHighlightsReducer,
   getUserProfileReducer,
+  followUserReducer,
+  unfollowUserReducer,
 } from "./reducers/userReducers";
 import {
   listThreadsReducer,
@@ -27,6 +29,8 @@ const reducer = combineReducers({
   userInfo: userInfoReducer,
   getUserProfile : getUserProfileReducer,
   listHighlights: listHighlightsReducer,
+  followUser : followUserReducer,
+  unfollowUser : unfollowUserReducer,
   getThreadDetail : getThreadDetailReducer,
   postThread: postThreadReducer,
   listThreads: listThreadsReducer,

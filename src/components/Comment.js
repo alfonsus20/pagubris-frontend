@@ -7,7 +7,7 @@ import pagubris from "../api/pagubris";
 
 const Comment = ({ id }) => {
   const { success } = useSelector((state) => state.answerThread);
-
+  const { userData } = useSelector((state) => state.userInfo);
   const [answers, setAnswers] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -48,7 +48,15 @@ const Comment = ({ id }) => {
                 </div>
                 <div className="w-10/12 flex flex-col justify-around ml-8 lg:ml-0 text-md">
                   <strong className="text-md">
-                    <Link to={`/lihat-profil`}>{answer.creator.name}</Link>
+                    <Link
+                      to={
+                        userData.id !== answer.creator.id
+                          ? `/lihat-profil/${answer.creator.id}`
+                          : "/edit-profil"
+                      }
+                    >
+                     {answer.creator.name}
+                    </Link>
                   </strong>
                   <div>{answer.content}</div>
                 </div>

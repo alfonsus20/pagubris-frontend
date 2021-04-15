@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import TextArea from "./form/TextArea";
 import Button from "./Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { answerThread } from "../actions/threadActions";
 import Comment from "./Comment";
 import nopic from "../assets/pictures/nopic.jpeg";
+import {Link} from 'react-router-dom'
 
-const Answer = ({ avatar, name, content, id, images }) => {
+const Answer = ({ avatar, name, content, id, images, userId }) => {
   const dispatch = useDispatch();
-
+  const { userData } = useSelector((state) => state.userInfo);
   const [detail, setDetail] = useState(false);
   const [answer, setAnswer] = useState("");
 
@@ -28,7 +29,16 @@ const Answer = ({ avatar, name, content, id, images }) => {
           />
         </div>
         <div className="w-9/12 flex flex-col justify-between">
-          <strong className="text-lg">{name}</strong>
+          <Link
+          className = 'text-lg font-bold'
+            to={
+              userData.id !== userId
+                ? `/lihat-profil/${userId}`
+                : "/edit-profil"
+            }
+          >
+            {name}
+          </Link>
           <div>{content}</div>
           <div className="flex flex-row justify-between"></div>
         </div>
@@ -44,23 +54,23 @@ const Answer = ({ avatar, name, content, id, images }) => {
           <div className="mt-8 p-4 md:p-8">
             <div>
               <h3 className="font-bold text-xl">Solusi yang diberikan</h3>
-              <div className='my-4'>
-                {images.length !== 0 ? images.map((image) => (
-                  <img
-                    src={image.url}
-                    key = {image.id}
-                    className="my-4"
-                    alt="solusi"
-                  />
-                )) : 'Tidak ada gambar'}
+              <div className="my-4">
+                {images.length !== 0
+                  ? images.map((image) => (
+                      <img
+                        src={image.url}
+                        key={image.id}
+                        className="my-4"
+                        alt="solusi"
+                      />
+                    ))
+                  : "Tidak ada gambar"}
               </div>
             </div>
             <div className="flex flex-row space-x-12 mt-4">
               <div className="w-full">
                 <h3 className="font-bold text-xl mb-2">Deskripsi</h3>
-                <p className="text-justify">
-                {content}
-                </p>
+                <p className="text-justify">{content}</p>
               </div>
             </div>
           </div>

@@ -32,6 +32,7 @@ const ViewAnswer = () => {
                   id = {answer.id}
                   mainId = {threadId}
                   images = {answer.images}
+                  userId = {answer.creator.id}
                 />
               ))
           : "Loading ..."}

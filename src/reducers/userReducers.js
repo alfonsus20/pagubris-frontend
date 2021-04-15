@@ -20,6 +20,12 @@ import {
   GET_USER_PROFILE_REQUEST,
   GET_USER_PROFILE_SUCCESS,
   GET_USER_PROFILE_FAIL,
+  FOLLOW_USER_REQUEST,
+  FOLLOW_USER_FAIL,
+  FOLLOW_USER_SUCCESS,
+  UNFOLLOW_USER_SUCCESS,
+  UNFOLLOW_USER_REQUEST,
+  UNFOLLOW_USER_FAIL,
   LIST_HIGHLIGHTS_RESET,
 } from "../constants/userConstants";
 
@@ -118,6 +124,40 @@ export const getUserProfileReducer = (state = {}, action) => {
     case GET_USER_PROFILE_SUCCESS:
       return { loading: false, success: true, userProfile: action.payload };
     case GET_USER_PROFILE_FAIL:
+      return {
+        loading: false,
+        success: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const followUserReducer = (state = {}, action) => {
+  switch (action.type) {
+    case FOLLOW_USER_REQUEST:
+      return { loading: true };
+    case FOLLOW_USER_SUCCESS:
+      return { loading: false, success: true };
+    case FOLLOW_USER_FAIL:
+      return {
+        loading: false,
+        success: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const unfollowUserReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UNFOLLOW_USER_REQUEST:
+      return { loading: true };
+    case UNFOLLOW_USER_SUCCESS:
+      return { loading: false, success: true };
+    case UNFOLLOW_USER_FAIL:
       return {
         loading: false,
         success: false,

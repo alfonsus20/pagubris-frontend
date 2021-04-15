@@ -1,6 +1,6 @@
 import React from "react";
 import PageWithSidebar from "../components/PageWithSidebar";
-import foto from "../assets/pictures/marsyalina.svg";
+import foto from "../assets/pictures/nopic.jpeg";
 import ChatContainer from "../components/chat/ChatContainer";
 import TextArea from "../components/form/TextArea";
 
@@ -8,8 +8,8 @@ const ChatPanel = () => {
   return (
     <PageWithSidebar>
       <div className='flex flex-row items-center space-x-4 bg-light-gray p-2'>
-        <img src={foto} className="w-16 h-16" alt="foto-profil" />
-        <h2 className="text-xl font-bold">James Wan</h2>
+        <img src={foto} className="w-16 h-16 rounded-full" alt="foto-profil" />
+        <h2 className="text-xl font-bold">Marsyalina</h2>
       </div>
       <ChatContainer />
       <div className="bg-light-blue flex flex-row">

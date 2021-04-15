@@ -11,7 +11,7 @@ const ViewProfile = () => {
   const { userProfile, loading } = useSelector((state) => state.getUserProfile);
   const { userId } = useParams();
   const rating = (Math.random() + 4).toFixed(2);
-
+  
   useEffect(() => {
     dispatch(getUserProfile(userId));
   }, []);

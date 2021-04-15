@@ -20,6 +20,12 @@ import {
   GET_USER_PROFILE_REQUEST,
   GET_USER_PROFILE_SUCCESS,
   GET_USER_PROFILE_FAIL,
+  FOLLOW_USER_REQUEST,
+  FOLLOW_USER_FAIL,
+  FOLLOW_USER_SUCCESS,
+  UNFOLLOW_USER_SUCCESS,
+  UNFOLLOW_USER_REQUEST,
+  UNFOLLOW_USER_FAIL,
   LIST_HIGHLIGHTS_RESET,
 } from "../constants/userConstants";
 import pagubris from "../api/pagubris";
@@ -141,6 +147,37 @@ export const getUserProfile = (userId) => async (dispatch) => {
     dispatch({ type: GET_USER_PROFILE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_USER_PROFILE_FAIL, payload: error.response.data });
+  }
+};
+
+export const followUser = (userId) => async (dispatch) => {
+  try {
+    dispatch({ type: FOLLOW_USER_REQUEST });
+    const config = {
+      headers: {
+        Authorization: getToken(),
+      },
+    };
+    const { data } = await pagubris.post(`/users/${userId}/follow`, config);
+    dispatch({ type: FOLLOW_USER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: FOLLOW_USER_FAIL, payload: error.response.data });
+  }
+};
+
+
+export const unfollowUser = (userId) => async (dispatch) => {
+  try {
+    dispatch({ type: UNFOLLOW_USER_REQUEST });
+    const config = {
+      headers: {
+        Authorization: getToken(),
+      },
+    };
+    const { data } = await pagubris.post(`/users/${userId}/unfollow`, config);
+    dispatch({ type: UNFOLLOW_USER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: UNFOLLOW_USER_FAIL, payload: error.response.data });
   }
 };
 

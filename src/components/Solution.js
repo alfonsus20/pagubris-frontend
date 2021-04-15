@@ -72,8 +72,8 @@ const Solution = ({ image, name, content, rating }) => {
           </span>
         </div>
         <div className="flex flex-row">
-          <Tag text="rumah" />
-          <Tag text="rumah" />
+          <Tag text="mobil" />
+          <Tag text="otomotif" />
         </div>
       </div>
     </div>

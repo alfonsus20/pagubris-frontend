@@ -51,7 +51,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <p className="text-red">
+            <p className="text-red-500">
               {error && "Incorrect username or password"}
             </p>
             <div className="flex justify-center mt-8">

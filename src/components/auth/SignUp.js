@@ -117,7 +117,7 @@ const SignUp = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-          {error && errors.map((err) => <p className="text-red">{err}</p>)}
+          {error && errors.map((err) => <p className="text-red-500">{err}</p>)}
           <div className="flex justify-center mt-8">
             <Button
               text="Buat Akun"

@@ -28,7 +28,7 @@ const SpotlightComponent = ({ image, name, bio }) => {
       </div>
       <div className="w-full lg:w-6/12 text-justify flex flex-col justify-between">
         <h4 className="text-xl font-bold mt-4 lg:mt-0">{name}</h4>
-        <p className="my-4 lg:my-4 text-md">{bio}</p>
+        <p className="my-2 lg:my-2 text-md">{bio}</p>
         <span>
           <strong>Keahlian:</strong> {keahlian[id1]}, {keahlian[id2]}
         </span>

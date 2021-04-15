@@ -5,10 +5,10 @@ import Button from "../Button";
 import nopic from "../../assets/pictures/nopic.jpeg";
 import { Link } from "react-router-dom";
 
-const Feed = ({ creator, content, threadId }) => {
+const Feed = ({ creator, content, threadId, visible = true }) => {
   const { name, avatar } = creator;
   return (
-    <div className="flex flex-row my-6 bg-white shadow-md md:shadow-xl rounded-md py-6 px-4">
+    <div className={`${visible ? 'flex': 'hidden'} flex-row my-6 bg-white shadow-md md:shadow-xl rounded-md py-6 px-4 `}>
       <div className="w-3/12 flex flex-col justify-center items-center">
         <img
           src={avatar ? avatar : nopic}

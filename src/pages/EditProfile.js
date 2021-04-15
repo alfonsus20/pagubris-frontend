@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PageWithSidebar from "../components/PageWithSidebar";
-import { getUserInfo, editProfile } from "../actions/userActions";
+import { getUserInfo, editProfile, getUserProfile } from "../actions/userActions";
 import nopic from "../assets/pictures/nopic.jpeg";
 import Button from "../components/Button";
 import TextField from "../components/form/TextField";
@@ -14,6 +14,7 @@ const EditProfile = () => {
   const dispatch = useDispatch();
   const { userData, loading } = useSelector((state) => state.userInfo);
   const { error, success } = useSelector((state) => state.userEditProfile);
+  const { userProfile, loading: loadingUserProfile } = useSelector((state) => state.getUserProfile);
   const [name, setName] = useState("");
   const [gender, setGender] = useState("");
   const [username, setUsername] = useState("");
@@ -40,6 +41,7 @@ const EditProfile = () => {
         setUsername(userData.username);
         setEmail(userData.email);
         setBio(userData.bio);
+        dispatch(getUserProfile(userData.id));
       }
     }
   }, [userData, dispatch, error, success]);
@@ -63,18 +65,18 @@ const EditProfile = () => {
             alt="foto-profile"
             className="w-40 h-40 rounded-full my-4"
           />
-          <p className="text-center">{!loading ? userData.name : 'Loading...'}</p>
+          <p className="text-center font-bold">{!loading ? userData.name : 'Loading...'}</p>
           <div className="flex flex-row text-sm text-center space-x-12 my-4">
             <div className="flex flex-col">
-              <strong>20</strong>
+              <strong>{!loadingUserProfile && userProfile ? userProfile.following_count : "Loading..."}</strong>
               mengikuti
             </div>
             <div className="flex flex-col">
-              <strong>20</strong>
+              <strong>{!loadingUserProfile && userProfile ? userProfile.followers_count : "Loading..."}</strong>
               diikuti
             </div>
             <div className="flex flex-col">
-              <strong>20</strong>
+              <strong>15</strong>
               total bantu
             </div>
           </div>

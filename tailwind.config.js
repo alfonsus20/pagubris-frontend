@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
@@ -13,7 +15,8 @@ module.exports = {
         "light-gray": "#F1F1F1",
         "semi-gray": "#B8B5FF",
         "light-blue": "#EDEEF7",
-        "red": "#fc0303",
+        "red": colors.red,
+        "yellow" : colors.yellow,
       },
       spacing: {
         100: "25rem",

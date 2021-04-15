@@ -26,11 +26,12 @@ const ViewAnswer = () => {
                 <Answer
                   key={answer.id}
                   answers = {answer.answers}
-                  image={answer.creator.avatar}
+                  avatar={answer.creator.avatar}
                   name={answer.creator.name}
                   content={answer.content}
                   id = {answer.id}
                   mainId = {threadId}
+                  images = {answer.images}
                 />
               ))
           : "Loading ..."}

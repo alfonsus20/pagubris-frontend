@@ -17,6 +17,9 @@ import {
   LIST_HIGHLIGHTS_REQUEST,
   LIST_HIGHLIGHTS_SUCCESS,
   LIST_HIGHLIGHTS_FAIL,
+  GET_USER_PROFILE_REQUEST,
+  GET_USER_PROFILE_SUCCESS,
+  GET_USER_PROFILE_FAIL,
   LIST_HIGHLIGHTS_RESET,
 } from "../constants/userConstants";
 
@@ -75,7 +78,7 @@ export const userInfoReducer = (state = { userData: {} }, action) => {
 export const userEditProfileReducer = (state = {}, action) => {
   switch (action.type) {
     case EDIT_PROFILE_REQUEST:
-      return {...state, loading: true };
+      return { ...state, loading: true };
     case EDIT_PROFILE_SUCCESS:
       return {
         loading: false,
@@ -98,6 +101,23 @@ export const listHighlightsReducer = (state = { highlights: [] }, action) => {
     case LIST_HIGHLIGHTS_SUCCESS:
       return { loading: false, success: true, highlights: action.payload };
     case LIST_HIGHLIGHTS_FAIL:
+      return {
+        loading: false,
+        success: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const getUserProfileReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_USER_PROFILE_REQUEST:
+      return { loading: true };
+    case GET_USER_PROFILE_SUCCESS:
+      return { loading: false, success: true, userProfile: action.payload };
+    case GET_USER_PROFILE_FAIL:
       return {
         loading: false,
         success: false,

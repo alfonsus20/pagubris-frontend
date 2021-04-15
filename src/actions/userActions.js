@@ -17,6 +17,9 @@ import {
   LIST_HIGHLIGHTS_REQUEST,
   LIST_HIGHLIGHTS_SUCCESS,
   LIST_HIGHLIGHTS_FAIL,
+  GET_USER_PROFILE_REQUEST,
+  GET_USER_PROFILE_SUCCESS,
+  GET_USER_PROFILE_FAIL,
   LIST_HIGHLIGHTS_RESET,
 } from "../constants/userConstants";
 import pagubris from "../api/pagubris";
@@ -123,6 +126,21 @@ export const listHighlights = () => async (dispatch) => {
     dispatch({ type: LIST_HIGHLIGHTS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LIST_HIGHLIGHTS_FAIL, payload: error.response.data });
+  }
+};
+
+export const getUserProfile = (userId) => async (dispatch) => {
+  try {
+    dispatch({ type: GET_USER_PROFILE_REQUEST });
+    const config = {
+      headers: {
+        Authorization: getToken(),
+      },
+    };
+    const { data } = await pagubris.get(`/users/${userId}`, config);
+    dispatch({ type: GET_USER_PROFILE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: GET_USER_PROFILE_FAIL, payload: error.response.data });
   }
 };
 

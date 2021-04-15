@@ -14,9 +14,62 @@ const Solution = ({ image, name, content, rating }) => {
       <div className="flex flex-col justify-between ml-8 lg:ml-0 text-lg rounded-lg">
         <strong className="text-lg">{name}</strong>
         <div>{content} </div>
-        <div className="flex flex-row my-3">
-          <i className="fas fa-star mr-1"></i>
-          <i className="fas fa-star-half-alt mr-1"></i>
+        <div className="flex flex-row my-3 text-yellow-400">
+          <span>
+            <i
+              className={
+                rating >= 1
+                  ? "fas fa-star"
+                  : rating >= 0.5
+                  ? "fas fa-star-half-alt"
+                  : "far fa-star"
+              }
+            ></i>
+          </span>
+          <span>
+            <i
+              className={
+                rating >= 2
+                  ? "fas fa-star"
+                  : rating >= 1.5
+                  ? "fas fa-star-half-alt"
+                  : "far fa-star"
+              }
+            ></i>
+          </span>
+          <span>
+            <i
+              className={
+                rating >= 3
+                  ? "fas fa-star"
+                  : rating >= 2.5
+                  ? "fas fa-star-half-alt"
+                  : "far fa-star"
+              }
+            ></i>
+          </span>
+          <span>
+            <i
+              className={
+                rating >= 4
+                  ? "fas fa-star"
+                  : rating >= 3.5
+                  ? "fas fa-star-half-alt"
+                  : "far fa-star"
+              }
+            ></i>
+          </span>
+          <span>
+            <i
+              className={
+                rating >= 5
+                  ? "fas fa-star"
+                  : rating >= 4.5
+                  ? "fas fa-star-half-alt"
+                  : "far fa-star"
+              }
+            ></i>
+          </span>
         </div>
         <div className="flex flex-row">
           <Tag text="rumah" />

@@ -17,6 +17,9 @@ import {
   ANSWER_THREAD_REQUEST,
   ANSWER_THREAD_SUCCESS,
   ANSWER_THREAD_FAIL,
+  GET_THREAD_DETAIL_REQUEST,
+  GET_THREAD_DETAIL_SUCCESS,
+  GET_THREAD_DETAIL_FAIL,
   LIST_THREAD_RESET,
 } from "../constants/threadConstants";
 import { getToken } from "./userActions";
@@ -103,7 +106,7 @@ export const getThreadAnswers = (threadId) => async (dispatch) => {
 
 // v1/feeds/{{feed_answer_sample_id}}/answers
 
-export const answerThread = ({ content, id }) => async (dispatch) => {
+export const answerThread = ({ content, id , images , category_id}) => async (dispatch) => {
   try {
     dispatch({ type: ANSWER_THREAD_REQUEST });
 
@@ -115,12 +118,11 @@ export const answerThread = ({ content, id }) => async (dispatch) => {
 
     const { data } = await pagubris.post(
       `/feeds/${id}/answers`,
-      { content },
+      { content, images , category_id},
       config
     );
 
     dispatch({ type: ANSWER_THREAD_SUCCESS, payload: data });
-    console.log("bisami");
   } catch (e) {
     dispatch({ type: ANSWER_THREAD_FAIL, payload: e.response.data });
   }
@@ -142,6 +144,28 @@ export const getThreadInnerAnswers = (threadId) => async (dispatch) => {
   } catch (e) {
     dispatch({
       type: LIST_THREAD_INNER_ANSWERS_FAIL,
+      payload: e.response.data,
+    });
+  }
+};
+
+
+export const getThreadDetail = (threadId) => async (dispatch) => {
+  try {
+    dispatch({ type: GET_THREAD_DETAIL_REQUEST });
+
+    const config = {
+      headers: {
+        Authorization: getToken(),
+      },
+    };
+
+    const { data } = await pagubris.get(`/feeds/${threadId}`, config);
+
+    dispatch({ type: GET_THREAD_DETAIL_SUCCESS, payload: data });
+  } catch (e) {
+    dispatch({
+      type: GET_THREAD_DETAIL_FAIL,
       payload: e.response.data,
     });
   }

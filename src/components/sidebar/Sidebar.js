@@ -118,7 +118,7 @@ const Sidebar = ({ mobile }) => {
                   />
                   <Button
                     text="Logout"
-                    bgColor="red"
+                    bgColor="red-500"
                     px={4}
                     py={2}
                     color="white"

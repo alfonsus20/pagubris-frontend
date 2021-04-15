@@ -7,6 +7,7 @@ import {
   userInfoReducer,
   userEditProfileReducer,
   listHighlightsReducer,
+  getUserProfileReducer,
 } from "./reducers/userReducers";
 import {
   listThreadsReducer,
@@ -14,7 +15,8 @@ import {
   listThreadAnswersReducer,
   listCategoriesReducer,
   answerThreadReducer,
-  listThreadInnerAnswersReducer
+  listThreadInnerAnswersReducer,
+  getThreadDetailReducer
 } from "./reducers/threadReducers";
 import { sidebarReducer } from "./reducers/sidebarReducers";
 
@@ -23,7 +25,9 @@ const reducer = combineReducers({
   userSignUp: userSignUpReducer,
   userEditProfile: userEditProfileReducer,
   userInfo: userInfoReducer,
+  getUserProfile : getUserProfileReducer,
   listHighlights: listHighlightsReducer,
+  getThreadDetail : getThreadDetailReducer,
   postThread: postThreadReducer,
   listThreads: listThreadsReducer,
   listThreadAnswers: listThreadAnswersReducer,

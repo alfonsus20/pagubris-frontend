@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import lulus from "../assets/pictures/lulus.png";
 import TextArea from "./form/TextArea";
 import Button from "./Button";
 import { useDispatch } from "react-redux";
-import {
-  answerThread,
-} from "../actions/threadActions";
+import { answerThread } from "../actions/threadActions";
 import Comment from "./Comment";
 import nopic from "../assets/pictures/nopic.jpeg";
 
-const Answer = ({ image, name, content, id }) => {
+const Answer = ({ avatar, name, content, id, images }) => {
   const dispatch = useDispatch();
 
   const [detail, setDetail] = useState(false);
@@ -24,7 +21,11 @@ const Answer = ({ image, name, content, id }) => {
     <div className="my-6 bg-white shadow-xl rounded-md py-6 px-4">
       <div className="flex flex-row ">
         <div className="w-3/12 flex flex-col justify-center items-center text-xl">
-          <img src={image ? image : nopic} className="w-20 h-20 rounded-full" alt='foto-profile' />
+          <img
+            src={avatar ? avatar : nopic}
+            className="w-20 h-20 rounded-full"
+            alt="foto-profile"
+          />
         </div>
         <div className="w-9/12 flex flex-col justify-between">
           <strong className="text-lg">{name}</strong>
@@ -42,26 +43,24 @@ const Answer = ({ image, name, content, id }) => {
         <>
           <div className="mt-8 p-4 md:p-8">
             <div>
-              <h3 className="font-bold text-xl">Tutorial Video</h3>
-              <div>
-                <img src={lulus} className="w-full h-auto my-4" alt='solusi'/>
+              <h3 className="font-bold text-xl">Solusi yang diberikan</h3>
+              <div className='my-4'>
+                {images.length !== 0 ? images.map((image) => (
+                  <img
+                    src={image.url}
+                    key = {image.id}
+                    className="my-4"
+                    alt="solusi"
+                  />
+                )) : 'Tidak ada gambar'}
               </div>
             </div>
             <div className="flex flex-row space-x-12 mt-4">
-              <div className="w-8/12">
+              <div className="w-full">
                 <h3 className="font-bold text-xl mb-2">Deskripsi</h3>
                 <p className="text-justify">
-                  jadi langkah pertama dalam pembuatan sebuah mockup adalah
-                  penentuan ide pokok dari recurement dan setelah itu pencarian
-                  referensi.....
+                {content}
                 </p>
-              </div>
-              <div className="w-4/12">
-                <h3 className="font-bold text-xl mb-2">Tools</h3>
-                <ul class="list-disc list-inside">
-                  <li>Komputer</li>
-                  <li>Internet</li>
-                </ul>
               </div>
             </div>
           </div>
@@ -74,7 +73,7 @@ const Answer = ({ image, name, content, id }) => {
             <form onSubmit={handleSubmit}>
               <TextArea
                 px={1}
-                placeholder="Tuliskan pesan Anda ...."
+                placeholder="Tuliskan komentar Anda ...."
                 width="full"
                 shadow="xl"
                 value={answer}

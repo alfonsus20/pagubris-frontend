@@ -19,6 +19,10 @@ import {
   ANSWER_THREAD_SUCCESS,
   ANSWER_THREAD_FAIL,
   ANSWER_THREAD_RESET,
+  GET_THREAD_DETAIL_REQUEST,
+  GET_THREAD_DETAIL_SUCCESS,
+  GET_THREAD_DETAIL_FAIL,
+  GET_THREAD_DETAIL_RESET,
 } from "../constants/threadConstants";
 
 export const postThreadReducer = (state = {}, action) => {
@@ -112,8 +116,10 @@ export const answerThreadReducer = (state = { answer: {} }, action) => {
   }
 };
 
-
-export const listThreadInnerAnswersReducer = (state = { answers: [] }, action) => {
+export const listThreadInnerAnswersReducer = (
+  state = { answers: [] },
+  action
+) => {
   switch (action.type) {
     case LIST_THREAD_INNER_ANSWERS_REQUEST:
       return { loading: true };
@@ -130,5 +136,22 @@ export const listThreadInnerAnswersReducer = (state = { answers: [] }, action) =
   }
 };
 
-
-
+export const getThreadDetailReducer = (
+  state = { },
+  action
+) => {
+  switch (action.type) {
+    case GET_THREAD_DETAIL_REQUEST:
+      return { loading: true };
+    case GET_THREAD_DETAIL_SUCCESS:
+      return { loading: false, success: true, threadData : action.payload };
+    case GET_THREAD_DETAIL_FAIL:
+      return {
+        loading: false,
+        success: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
